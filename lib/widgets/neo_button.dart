@@ -7,6 +7,8 @@ class NeoButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final bool isPressed;
   final Color btnBackGroundColor;
+  final blureFirsColor ;
+  final blureSecondColor ;
 
   const NeoButton({
     super.key,
@@ -15,6 +17,8 @@ class NeoButton extends StatelessWidget {
     this.padding,
     this.isPressed = false,
     this.btnBackGroundColor = const Color(0xFFE0E5EC),
+    this.blureFirsColor = const Color(0xFFA3B1C6),
+    this.blureSecondColor = Colors.white,
   });
 
   @override
@@ -30,28 +34,28 @@ class NeoButton extends StatelessWidget {
           boxShadow:
               isPressed
                   ? [
-                    const BoxShadow(
-                      color: Color(0xFFA3B1C6),
+                     BoxShadow(
+                      color:  blureFirsColor,
                       offset: Offset(2, 2),
                       blurRadius: 5,
                       spreadRadius: 1,
                     ),
-                    const BoxShadow(
-                      color: Colors.white,
+                     BoxShadow(
+                      color: blureSecondColor,
                       offset: Offset(-2, -2),
                       blurRadius: 5,
                       spreadRadius: 1,
                     ),
                   ]
                   : [
-                    const BoxShadow(
-                      color: Color(0xFFA3B1C6),
+                     BoxShadow(
+                      color: blureFirsColor,
                       offset: Offset(6, 6),
                       blurRadius: 8,
                       spreadRadius: 1,
                     ),
-                    const BoxShadow(
-                      color: Colors.white,
+                     BoxShadow(
+                      color: blureSecondColor,
                       offset: Offset(-6, -6),
                       blurRadius: 8,
                       spreadRadius: 1,

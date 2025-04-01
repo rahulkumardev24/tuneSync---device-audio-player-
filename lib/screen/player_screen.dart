@@ -1,7 +1,10 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:marquee/marquee.dart';
 import 'package:tunesync/service/audio_controller.dart';
+import 'package:tunesync/utils/custom_text_style.dart';
 
 import '../model/local_song_model.dart';
 import '../widgets/neo_button.dart';
@@ -21,11 +24,10 @@ class _PlayerScreenState extends State<PlayerScreen> {
   bool _isPlaying = false;
 
 
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final theme = Theme.of(context);
-
     return Scaffold(
       backgroundColor: const Color(0xFFE0E5EC),
       body: SafeArea(
@@ -45,10 +47,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       const Spacer(),
                       Text(
                         'Now Playing',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: const Color(0xFF4A5668),
-                        ),
+                        style: myTextStyle24()
                       ),
                       const Spacer(),
                       NeoButton(
@@ -59,18 +58,16 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   ),
                   const SizedBox(height: 40),
                   // Album Art
-                  NeoContainer(
-                    width: size.width * 0.7,
-                    height: size.width * 0.7,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.network(
-                        'https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) => const Icon(Icons.music_note, size: 60),
-                      ),
+                  SizedBox(
+                    height: size.width * 0.8,
+                    width: size.width * 0.8,
+                    child: Lottie.asset(
+                      "lib/assets/animation/music-new.json",
+                      fit: BoxFit.contain, // Ensure animation fits properly
                     ),
                   ),
+
+
                   const SizedBox(height: 40),
                   /// --- SONG TITLE --- ///
                   SizedBox(
@@ -79,24 +76,23 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       blankSpace: 50,
                       startPadding: 10,
                       velocity: 30,
-                      style: const TextStyle(
-                        fontSize: 25,
-                          color: Color(0xFF4A5668)
-                      ),
+                      style: myTextStyle18(fontColor: Colors.black45),
                       text: widget.song.title.toString().split('/').last,
                     ),
                   ),
+                  SizedBox(height: 6,),
                   Text(
                     widget.song.artist,
                     textAlign: TextAlign.center,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
+                    style: myTextStyle15(),
                   ),
                   // Song Info
 
 
 
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
 
                   /// --- Progress Bar --- ///
                   Padding(

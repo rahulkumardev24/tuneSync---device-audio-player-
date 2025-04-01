@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:tunesync/service/audio_controller.dart';
 import 'package:tunesync/utils/custom_text_style.dart';
+import 'package:tunesync/widgets/bottom_player.dart';
 import 'package:tunesync/widgets/neo_button.dart';
 import 'package:tunesync/widgets/song_list_item.dart';
 
@@ -94,6 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         },
       ),
+      bottomSheet: BottomPlayer(),
     );
   }
+
 }
