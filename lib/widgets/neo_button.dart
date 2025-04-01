@@ -6,7 +6,7 @@ class NeoButton extends StatelessWidget {
   final VoidCallback onPressed;
   final EdgeInsetsGeometry? padding;
   final bool isPressed;
-  final Color btnBackGroundColor ;
+  final Color btnBackGroundColor;
 
   const NeoButton({
     super.key,
@@ -14,7 +14,7 @@ class NeoButton extends StatelessWidget {
     required this.onPressed,
     this.padding,
     this.isPressed = false,
-    this.btnBackGroundColor = const Color(0xFFE0E5EC)
+    this.btnBackGroundColor = const Color(0xFFE0E5EC),
   });
 
   @override
@@ -27,40 +27,36 @@ class NeoButton extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: btnBackGroundColor,
-          boxShadow: isPressed
-              ? [
-            const BoxShadow(
-              color: Color(0xFFA3B1C6),
-              offset: Offset(2, 2),
-              blurRadius: 5,
-              spreadRadius: 1,
-
-            ),
-            const BoxShadow(
-              color: Colors.white,
-              offset: Offset(-2, -2),
-              blurRadius: 5,
-              spreadRadius: 1,
-            ),
-
-
-          ]
-              : [
-            const BoxShadow(
-              color: Color(0xFFA3B1C6),
-              offset: Offset(6, 6),
-              blurRadius: 8,
-              spreadRadius: 1,
-            ),
-            const BoxShadow(
-              color: Colors.white,
-              offset: Offset(-6, -6),
-              blurRadius: 8,
-              spreadRadius: 1,
-            ),
-
-
-          ],
+          boxShadow:
+              isPressed
+                  ? [
+                    const BoxShadow(
+                      color: Color(0xFFA3B1C6),
+                      offset: Offset(2, 2),
+                      blurRadius: 5,
+                      spreadRadius: 1,
+                    ),
+                    const BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(-2, -2),
+                      blurRadius: 5,
+                      spreadRadius: 1,
+                    ),
+                  ]
+                  : [
+                    const BoxShadow(
+                      color: Color(0xFFA3B1C6),
+                      offset: Offset(6, 6),
+                      blurRadius: 8,
+                      spreadRadius: 1,
+                    ),
+                    const BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(-6, -6),
+                      blurRadius: 8,
+                      spreadRadius: 1,
+                    ),
+                  ],
         ),
         child: Center(child: child),
       ),
