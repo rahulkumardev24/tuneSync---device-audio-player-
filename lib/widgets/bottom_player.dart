@@ -77,7 +77,7 @@ class BottomPlayer extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
-                        vertical: 8,
+
                       ),
 
                       /// --- progress bar --- ///
