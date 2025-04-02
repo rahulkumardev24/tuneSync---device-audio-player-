@@ -22,9 +22,6 @@ class PlayerScreen extends StatefulWidget {
 class _PlayerScreenState extends State<PlayerScreen> {
   final audioController = AudioController();
   bool _isPlaying = false;
-
-
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
