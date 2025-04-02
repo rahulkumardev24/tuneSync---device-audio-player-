@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
         valueListenable: audioController.songs,
         builder: (context, songs, child) {
           if (songs.isEmpty) {
-            return Center(child: Text("Song list is empty"));
+            return Center(child: CircularProgressIndicator(color: Colors.greenAccent , strokeWidth: 6,));
           }
           return ListView.builder(
             itemCount: songs.length,
